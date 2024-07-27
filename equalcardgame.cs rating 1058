@@ -1,0 +1,13 @@
+using System;
+public class Test
+{
+	public static void Main()
+	{
+		   string[] cases = Console.ReadLine().Split();
+       int n = int.Parse(cases[0]);
+           for(int i=0;i<n;i++){
+               int q = int.Parse(Console.ReadLine());
+               Console.WriteLine(52 % q);
+           }
+	}
+}
