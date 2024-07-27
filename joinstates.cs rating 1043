@@ -1,0 +1,39 @@
+using System;
+using System.Linq;
+
+public class Test
+{
+    public static void Main()
+    {
+        // Read the number of test cases
+        int t = int.Parse(Console.ReadLine());
+        while (t-- > 0)
+        {
+            // Read the number of states and the minimum number of literate people required
+            string[] cases = Console.ReadLine().Split();
+            int n = int.Parse(cases[0]);
+            int m = int.Parse(cases[1]);
+
+            // Read the array of literate people in each state
+            int[] literateCounts = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+            int currentSum = 0;
+            int validStatesCount = 0;
+
+            // Iterate through the array and combine states if necessary
+            for (int i = 0; i < n; i++)
+            {
+                currentSum += literateCounts[i];
+
+                if (currentSum >= m)
+                {
+                    validStatesCount++;
+                    currentSum = 0;
+                }
+            }
+
+            // Output the result for the current test case
+            Console.WriteLine(validStatesCount);
+        }
+    }
+}
