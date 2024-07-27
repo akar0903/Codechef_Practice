@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+
+public class Test
+{
+    public static void Main()
+    {
+        int testcases = int.Parse(Console.ReadLine());
+        while (testcases-- > 0)
+        {
+            int size = int.Parse(Console.ReadLine());
+            string[] getnos = Console.ReadLine().Split(" ");
+            Dictionary<int, int> frequency = new Dictionary<int, int>();
+
+            // Count the frequency of each number
+            for (int i = 0; i < size; i++)
+            {
+                int num = int.Parse(getnos[i]);
+                if (frequency.ContainsKey(num))
+                {
+                    frequency[num]++;
+                }
+                else
+                {
+                    frequency[num] = 1;
+                }
+            }
+
+            // Find the maximum frequency
+            int maxcount = 0;
+            foreach (var count in frequency.Values)
+            {
+                if (count > maxcount)
+                {
+                    maxcount = count;
+                }
+            }
+
+            // Calculate and output the result
+            Console.WriteLine(size - maxcount);
+        }
+    }
+}
