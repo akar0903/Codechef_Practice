@@ -1,0 +1,40 @@
+using System;
+
+public class Test
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine());
+        while(t-- > 0)
+        {
+            int n = int.Parse(Console.ReadLine());
+            string s = Console.ReadLine();
+            
+            int current_present_days = 0;
+            int longest_absence_length = 0;
+            int current_absence_length = 0;
+
+            // Count current present days and find the longest absence length
+            foreach (char c in s)
+            {
+                if (c == '1')
+                {
+                    current_present_days++;
+                    current_absence_length = 0; // reset absence length
+                }
+                else
+                {
+                    current_absence_length++;
+                    if (current_absence_length > longest_absence_length)
+                    {
+                        longest_absence_length = current_absence_length;
+                    }
+                }
+            }
+
+            // Calculate the maximum number of present days possible
+            int max_present_days = current_present_days + longest_absence_length;
+            Console.WriteLine(max_present_days);
+        }
+    }
+}
