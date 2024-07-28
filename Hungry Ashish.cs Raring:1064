@@ -1,0 +1,26 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0){
+		    string[] amount = Console.ReadLine().Split();
+		    int left = int.Parse(amount[0]);
+		    int pizza = int.Parse(amount[1]);
+		    int burger = int.Parse(amount[2]);
+		    if(left>=pizza){
+		        Console.WriteLine("PIZZA");
+		    }
+		    else if(left>=burger){
+		        Console.WriteLine("BURGER");
+		    }
+		    else if(pizza>left && burger>left){
+		        Console.WriteLine("NOTHING");
+		    }
+		    
+		}
+	}
+}
