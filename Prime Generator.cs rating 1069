@@ -1,0 +1,40 @@
+using System;
+
+class Codechef
+{
+    static void Main(string[] args)
+    {
+        int s = int.Parse(Console.ReadLine()); // number of test cases
+        
+        for (int t = 0; t < s; t++)
+        {
+            string[] range = Console.ReadLine().Split();
+            int m = int.Parse(range[0]); // start of the range
+            int n = int.Parse(range[1]); // end of the range
+
+            if (m <= 2 && n >= 2)
+            {
+                Console.WriteLine(2); // 2 is the only even prime number
+                m = 3; // Start from the next number
+            }
+            if (m % 2 == 0) m++; // Make sure m is odd
+
+            for (int i = m; i <= n; i += 2)
+            {
+                bool isPrime = true;
+                for (int j = 3; j <= Math.Sqrt(i); j += 2)
+                {
+                    if (i % j == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+    }
+}
