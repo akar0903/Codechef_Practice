@@ -1,0 +1,27 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int T = int.Parse(Console.ReadLine());
+		for(; T > 0; T--)
+		{
+		    string[] ip = Console.ReadLine().Split(' ');
+		    int N = int.Parse(ip[0]);
+		    int X = int.Parse(ip[1]);
+		    int Y = int.Parse(ip[2]);
+		    string S = Console.ReadLine();
+		    int one = 0, zero = 0;
+		    for(int i = 0; i < N; i++)
+		    {
+		        if(S[i] == '0')
+		            zero++;
+		        else
+		            one++;
+		    }
+		    Console.WriteLine(zero == 0 || one == 0 ? 0 : X < Y ? X : Y);
+		}
+	}
+}
