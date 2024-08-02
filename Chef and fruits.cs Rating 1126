@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Chef_and_Fruits_FRUITS
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int T = int.Parse(Console.ReadLine());
+
+            for (int t = 0; t < T; t++)
+            {
+                int[] nmk = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
+                int nApples = nmk[0];
+                int mOranges = nmk[1];
+                int kGold = nmk[2];
+
+                int res = 0;
+                int diff = Math.Abs(nApples - mOranges);
+                int min = Math.Min(nApples, mOranges);
+                int max = Math.Max(nApples, mOranges);
+
+                if (kGold <= diff)                      
+                    res = max - (min + kGold);
+                else
+                    res = 0;
+
+                Console.WriteLine(res);
+            }
+        }
+    }
+}
