@@ -1,0 +1,52 @@
+using System;
+
+public class Test
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine());
+        while (t-- > 0)
+        {
+            int N = int.Parse(Console.ReadLine());
+            string[] hand = Console.ReadLine().Split();
+            string[] hand2 = Console.ReadLine().Split();
+            int handcount = 0;
+            int handcount2 = 0;
+            bool frontFlag = true;
+            bool backFlag = true;
+
+            for (int i = 0; i < N; i++)
+            {
+                int finger = int.Parse(hand[i]);
+                int sheath = int.Parse(hand2[i]);
+                int sheathReversed = int.Parse(hand2[N - i - 1]);
+
+                if (finger > sheath)
+                {
+                    frontFlag = false;
+                }
+                if (finger > sheathReversed)
+                {
+                    backFlag = false;
+                }
+            }
+
+            if (frontFlag && backFlag)
+            {
+                Console.WriteLine("both");
+            }
+            else if (frontFlag)
+            {
+                Console.WriteLine("front");
+            }
+            else if (backFlag)
+            {
+                Console.WriteLine("back");
+            }
+            else
+            {
+                Console.WriteLine("none");
+            }
+        }
+    }
+}
