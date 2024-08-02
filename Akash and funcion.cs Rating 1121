@@ -1,0 +1,19 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		for(int i=0;i<t;i++){
+		    int n = int.Parse(Console.ReadLine());
+		    if(n%2==0){
+		        Console.WriteLine(n/2);
+		    }
+		    else{
+		        Console.WriteLine((n/2) + 1);
+		    }
+		}
+	}
+}
