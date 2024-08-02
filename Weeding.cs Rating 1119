@@ -1,0 +1,41 @@
+using System;
+
+public class Test
+{
+    public static void Main()
+    {
+        // Read the number of test cases
+        int t = int.Parse(Console.ReadLine());
+        while (t-- > 0)
+        {
+            // Read the weed details
+            int[] weeddetails = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
+            int numberweeds = weeddetails[0];
+            int totaldays = weeddetails[1];
+            int numberofspray = weeddetails[2];
+
+            // Read the weeds array
+            int[] weeds = Array.ConvertAll(Console.ReadLine().Trim().Split(), int.Parse);
+            
+            // Find the maximum value in the weeds array
+            int maxWeed = int.MinValue;
+            for (int i = 0; i < numberweeds; i++)
+            {
+                if (weeds[i] > maxWeed)
+                {
+                    maxWeed = weeds[i];
+                }
+            }
+            
+            // Check if the maximum weed can be handled within total days
+            if (totaldays >= maxWeed + numberofspray - 1)
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+        }
+    }
+}
