@@ -1,0 +1,42 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0){
+		    int n = int.Parse(Console.ReadLine());
+		    int Score1=0;
+		    int Score2=0;
+		    for(int i=0;i<n;i++){
+		        string[] tokens = Console.ReadLine().Split();
+                int cardNumber1 = int.Parse(tokens[0]);
+                int cardNumber2 = int.Parse(tokens[1]);
+                int Sum1 = SumOfDigits(cardNumber1);
+                int Sum2 = SumOfDigits(cardNumber2);
+                if (Sum1 > Sum2) Score1++;
+                else if (Sum2 > Sum1) Score2++;
+                else
+                {
+                    Score1++;
+                    Score2++;
+                }
+		    }
+		    if (Score1 > Score2) Console.WriteLine($"0 {Score1}");
+            else if (Score1 < Score2) Console.WriteLine($"1 {Score2}");
+            else Console.WriteLine($"2 {Score1}");
+		}
+	}
+	public static int SumOfDigits(int number)
+    {
+        int sum = 0;
+        while (number != 0)
+        {
+            sum += number % 10;
+            number /= 10;
+        }
+        return sum;
+    }
+}
