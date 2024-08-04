@@ -1,0 +1,22 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0){
+		    int n = int.Parse(Console.ReadLine());
+		    char[] ch = Console.ReadLine().ToCharArray();
+		    int count = 0;
+		    for(int i = 0; i<n-1; i++){
+		        if(ch[i] == ch[i+1]){
+                    i++;
+                    count++;
+		        }
+		    }
+		    Console.WriteLine(n - count);
+		}
+	}
+}
