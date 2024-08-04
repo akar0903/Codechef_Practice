@@ -1,0 +1,33 @@
+using System;
+
+public class Test
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine());
+        while (t-- > 0)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+            long[] cumulativeSum = new long[n];
+            cumulativeSum[0] = arr[0];
+            for (int i = 1; i < n; i++)
+            {
+                cumulativeSum[i] = cumulativeSum[i - 1] + arr[i];
+            }
+
+            long maxSales = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                long currentSales = cumulativeSum[i] + arr[i]; 
+                if (currentSales > maxSales)
+                {
+                    maxSales = currentSales;
+                }
+            }
+
+            Console.WriteLine(maxSales);
+        }
+    }
+}
