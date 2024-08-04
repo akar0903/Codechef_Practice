@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+
+public class Test
+{
+    public static void Main()
+    {
+        // Read the number of test cases
+        int T = int.Parse(Console.ReadLine());
+
+        for (int t = 0; t < T; t++)
+        {
+            // Read the size of the array
+            int N = int.Parse(Console.ReadLine());
+
+            // Read the array elements
+            string[] A = Console.ReadLine().Split(' ');
+
+            int maxOddCount = 0;
+            int currentOddCount = 0;
+            Dictionary<int, int> elementCounts = new Dictionary<int, int>();
+
+            for (int i = 0; i < N; i++)
+            {
+                int num = int.Parse(A[i]);
+
+                if (elementCounts.ContainsKey(num))
+                {
+                    elementCounts[num]++;
+                }
+                else
+                {
+                    elementCounts[num] = 1;
+                }
+
+                // Check if the current count is odd or even
+                if (elementCounts[num] % 2 == 1)
+                {
+                    currentOddCount++;
+                }
+                else
+                {
+                    currentOddCount--;
+                }
+
+                // Update the maximum count of odd elements
+                if (currentOddCount > maxOddCount)
+                {
+                    maxOddCount = currentOddCount;
+                }
+            }
+
+            // Output the result for the current test case
+            Console.WriteLine(maxOddCount);
+        }
+    }
+}
