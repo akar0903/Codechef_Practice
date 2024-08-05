@@ -1,0 +1,45 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0){
+		    string[] country = Console.ReadLine().Split();
+		    int contest = int.Parse(country[0]);
+		    string origin = country[1];
+		    int laddu = 0;
+		    for(int i=0;i<contest;i++){
+		        country = Console.ReadLine().Split(' ');
+    		    string activity = country[0];
+    		    if(activity.Equals("CONTEST_WON")){
+    		        int rank = int.Parse(country[1]);
+    		        if(rank<20){
+    		            laddu += 300 + 20 - rank;
+    		        }
+    		        else{
+    		            laddu += 300;
+    		        }
+    		    }
+    		    else if(activity.Equals("TOP_CONTRIBUTOR")){
+    		        laddu += 300;
+    		    }
+    		    else if(activity.Equals("BUG_FOUND")){
+    		        int difficulty = int.Parse(country[1]);
+    		        laddu += difficulty;
+    		    }
+    		    else if(activity.Equals("CONTEST_HOSTED")){
+    		        laddu += 50;
+    		    }
+		    }
+		    if(origin.Equals("INDIAN")){
+		        Console.WriteLine(laddu / 200);
+		    }
+		    else if(origin.Equals("NON_INDIAN")){
+		        Console.WriteLine(laddu / 400);
+		    }
+		}
+	}
+}
