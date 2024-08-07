@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Multiple_Choice_Exam_EXAM1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int T = int.Parse(Console.ReadLine());
+
+            for (int t = 0; t < T; t++)
+            {
+                int nQuestions = int.Parse(Console.ReadLine());
+                string correct = Console.ReadLine();
+                string answers = Console.ReadLine();
+                int cnt = 0;
+
+                int i = 0;
+                while (i < nQuestions)
+                {
+                    if (answers[i] == correct[i])
+                    {
+                        cnt++;
+                        i++;
+                    }
+                    else if (answers[i] == 'N')
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        i += 2;
+                    }
+                }
+
+                Console.WriteLine(cnt);
+            }
+        }
+    }
+}
