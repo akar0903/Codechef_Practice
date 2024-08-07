@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0){
+		    string s = Console.ReadLine();
+		    Dictionary<int,int> dict = new Dictionary<int,int>();
+		    for(int i=0;i<s.Length;i++){
+		        if(dict.ContainsKey(s[i])){
+		            dict[s[i]]++;
+		        }
+		        else{
+		            dict.Add(s[i],1);
+		        }
+		    }
+		    string res = "NO";
+
+                foreach (var item in dict)
+                {
+                    if (item.Value * 2 == s.Length)
+                    {
+                        res = "YES";
+                        break;
+                    }
+                }
+
+                Console.WriteLine(res);
+            
+                
+
+               
+		}
+	}
+}
