@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Test
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine());
+        while (t-- > 0)
+        {
+            string[] songs = Console.ReadLine().Split();
+            int total = int.Parse(songs[0]); 
+            int playlistSize = int.Parse(songs[1]); 
+            int language = int.Parse(songs[2]); 
+
+            List<int> songLengths = new List<int>();
+
+            for (int i = 0; i < total; i++)
+            {
+                string[] details = Console.ReadLine().Split();
+                int length = int.Parse(details[0]);
+                int songLang = int.Parse(details[1]);
+
+                if (songLang == language)
+                {
+                    songLengths.Add(length);
+                }
+            }
+            if (songLengths.Count < playlistSize)
+            {
+                Console.WriteLine("-1");
+                continue;
+            }
+            songLengths.Sort();
+            songLengths.Reverse();  
+            int maxPlaylistLength = 0;
+            for (int i = 0; i < playlistSize; i++)
+            {
+                maxPlaylistLength += songLengths[i];
+            }
+            Console.WriteLine(maxPlaylistLength);
+        }
+    }
+}
