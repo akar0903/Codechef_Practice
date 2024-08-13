@@ -1,0 +1,43 @@
+using System;
+
+public class AtTheGates
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine());    
+        while (t-- > 0)
+        {
+            string[] inputs = Console.ReadLine().Split(' ');
+            int N = int.Parse(inputs[0]);
+            int K = int.Parse(inputs[1]);
+            string[] coins = Console.ReadLine().Split(' ');
+            for (int i = N - 1; i >= N - K; i--)
+            {
+                if (coins[i] == "H")
+                {
+                    
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (coins[j] == "H")
+                        {
+                            coins[j] = "T";
+                        }
+                        else
+                        {
+                            coins[j] = "H";
+                        }
+                    }
+                }
+            }
+            int headsCount = 0;
+            for (int i = 0; i < N - K; i++)
+            {
+                if (coins[i] == "H")
+                {
+                    headsCount++;
+                }
+            }
+            Console.WriteLine(headsCount);
+        }
+    }
+}
