@@ -1,0 +1,31 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0){
+		    int n = int.Parse(Console.ReadLine());
+		    string[] ip = Console.ReadLine().Split(' ');
+		    int unpaidMonth=-1;
+		    int ans =0;
+		    for(int i = 0; i < n; i++)
+		    {
+		        if(ip[i].Equals("1"))
+		        {
+		            if(unpaidMonth != -1)
+		                ans += 100;
+		        }
+		        else
+		        {
+		            if(unpaidMonth == -1)
+		                unpaidMonth = i;
+		            ans += 1100;
+		        }
+		    }
+		    Console.WriteLine(ans);
+		}
+	}
+}
