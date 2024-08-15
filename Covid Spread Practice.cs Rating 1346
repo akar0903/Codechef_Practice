@@ -1,0 +1,39 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+	     int kk=0,aa;
+	    int test=Convert.ToInt32(Console.ReadLine());
+	    for(int j=0;j<test;j++){
+	   
+	    double ans=0;
+	    string[] testcase=Console.ReadLine().TrimEnd().Split(' ');
+	    int n=Convert.ToInt32(testcase[0]);
+	    int d=Convert.ToInt32(testcase[1]);
+	    
+	    if(d<=10)
+	    {
+	         ans=Math.Pow(2,d);
+	    }
+	    else
+	    {
+	         ans=1024*Math.Pow(3,d-10);
+	        
+	    }
+	    if(ans>n){
+	        Console.WriteLine(n);
+	    }
+	    else
+	    {
+	        Console.WriteLine(ans);
+	    }
+	   
+	    
+	    
+	   
+	   }
+	        
+	    }
+}
