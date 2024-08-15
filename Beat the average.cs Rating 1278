@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Beat_the_Average_ABOVEAVG
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int T = int.Parse(Console.ReadLine());
+
+            for (; T > 0; T--)
+            {
+                int[] nmx = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                int students = nmx[0];
+                int maxScore = nmx[1];
+                int avgScore = nmx[2];
+
+                if (avgScore == maxScore)
+                    Console.WriteLine(0);
+                else
+                    Console.WriteLine((students * avgScore) / (avgScore + 1));
+            }
+        }
+    }
+}
