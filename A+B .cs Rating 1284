@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace A_PLUS_B_Remastered_APLUSB
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int T = int.Parse(Console.ReadLine());
+
+            for (; T > 0; T--)
+            {
+                int N = int.Parse(Console.ReadLine());
+                int[] A = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                int[] B = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+
+                Array.Sort(A);
+                Array.Sort(B);
+                Array.Reverse(B);
+                int ab0 = A[0] + B[0];
+                bool possible = true;
+
+                for (int i = 1; i < N; i++)
+                {
+                    if (A[i] + B[i] != ab0)
+                    {
+                        possible = false;
+                        break;
+                    }
+                }
+
+                if (possible)
+                {
+                    for (int i = 0; i < N; i++) Console.Write(A[i] + " ");
+                    Console.WriteLine();
+                    for (int i = 0; i < N; i++) Console.Write(B[i] + " ");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine(-1);
+                }
+                
+            }
+        }
+    }
+}
