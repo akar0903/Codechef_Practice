@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace A_Big_Sale_BIGSALE
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int T = int.Parse(Console.ReadLine());
+
+            for (; T > 0; T--)
+            {
+                int N = int.Parse(Console.ReadLine());
+                double ans = 0;
+
+                for (int n = 0; n < N; n++)
+                {
+                    int[] pqd = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+                    double price = pqd[0];
+                    double quantity = pqd[1];
+                    double discount = pqd[2];
+
+                    double lossPerPiece = price - price * (1 + discount / 100) * (1 - discount / 100);
+                    ans += quantity * lossPerPiece;
+                }
+                
+                Console.WriteLine(ans);
+            }
+        }
+    }
+}
