@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0)
+		{
+		    string[] arr = Console.ReadLine().Split();
+		    int soints = int.Parse(arr[0]);
+		    int sofloat = int.Parse(arr[1]);
+		    Dictionary<int, int> intsChakraSum = new Dictionary<int, int>();
+                Dictionary<int, int> floatsChakraSum = new Dictionary<int, int>();
+		    for(int i=0;i<soints;i++){
+		        string[] powers = Console.ReadLine().Split();
+		        int power_soint = int.Parse(powers[0]);
+		        int level_soint = int.Parse(powers[1]);
+		        if(intsChakraSum.ContainsKey(level_soint)){
+		            intsChakraSum[level_soint] += power_soint;
+		        }
+		        else{
+		            intsChakraSum[level_soint] = power_soint;
+		        }
+		    }
+		    for(int i=0;i<sofloat;i++){
+		        string[] powerss = Console.ReadLine().Split();
+		        int power_sofloat = int.Parse(powerss[0]);
+		        int level_sofloat = int.Parse(powerss[1]);
+		        if(floatsChakraSum.ContainsKey(level_sofloat)){
+		            floatsChakraSum[level_sofloat] += power_sofloat;
+		        }
+		        else{
+		            floatsChakraSum[level_sofloat] = power_sofloat;
+		        }
+		    }
+		     int neededChakra = 0;
+            foreach (var item in intsChakraSum)
+            {
+                int diff = floatsChakraSum[item.Key] - item.Value;
+                neededChakra += Math.Max(diff, 0);
+            }
+            Console.WriteLine(neededChakra);
+		}
+	}
+}
