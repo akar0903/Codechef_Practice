@@ -1,0 +1,35 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int T = int.Parse(Console.ReadLine());
+		for(; T > 0; T--)
+		{
+		    int N = int.Parse(Console.ReadLine());
+		    string S = Console.ReadLine();
+		    int min = Math.Min(S[0], S[N-1]);
+		    int max = Math.Max(S[0], S[N-1]);
+		    int f = 0;
+		    for(int i = 1; i < N/2; i++)
+		    {
+		        int m = Math.Min(S[i], S[N-i-1]);
+		        int k = Math.Max(S[i], S[N-i-1]);
+		        if(m < min || k > max)
+		        {
+		            f = 1;
+		            break;
+		        }
+		        min = m;
+		        max = k;
+		    }
+		    if((N&1) == 1 && (S[N/2] < min || S[N/2] > max))
+		    {
+		        f = 1;
+		    }
+		    Console.WriteLine(f == 0 ? "YES" : "NO");
+		}
+	}
+}
