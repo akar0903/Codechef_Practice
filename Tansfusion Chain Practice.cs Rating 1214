@@ -1,0 +1,34 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0)
+		{
+		    int n = int.Parse(Console.ReadLine());
+		    string[] blood = Console.ReadLine().Split();
+		    int cnto=0;
+		    int cnta=0;
+		    int cntb=0;
+		    int cntab=0;
+		    for(int i=0;i<n;i++){
+		        if(blood[i]=="O"){
+		            cnto++;
+		        }
+		        else if(blood[i]=="A"){
+		            cnta++;
+		        }
+		        else if(blood[i]=="B"){
+		            cntb++;
+		        }
+		        else if(blood[i]=="AB"){
+		            cntab++;
+		        }
+		    }
+		    Console.WriteLine(cnto+Math.Max(cnta,cntb)+cntab);
+		}
+	}
+}
