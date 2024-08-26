@@ -1,0 +1,35 @@
+using System;
+using System.Linq;
+
+public class AndrashStipendium
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine());
+        
+        while (t-- > 0)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] scores = Console.ReadLine().Split().Select(int.Parse).ToArray();
+            if (scores.Contains(2))
+            {
+                Console.WriteLine("No");
+                continue;
+            }
+            if (!scores.Contains(5))
+            {
+                Console.WriteLine("No");
+                continue;
+            }
+            double avg = scores.Average();
+            if (avg < 4.0)
+            {
+                Console.WriteLine("No");
+            }
+            else
+            {
+                Console.WriteLine("Yes");
+            }
+        }
+    }
+}
