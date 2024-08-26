@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Similar_Dishes_SIMDISH
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int T = int.Parse(Console.ReadLine());
+
+            for (; T > 0; T--)
+            {
+                string[] dishes1 = Console.ReadLine().Trim().Split();
+                string[] dishes2 = Console.ReadLine().Trim().Split();
+
+                HashSet<string> set1 = new HashSet<string> { dishes1[0], dishes1[1], dishes1[2], dishes1[3] };
+                HashSet<string> set2 = new HashSet<string> { dishes2[0], dishes2[1], dishes2[2], dishes2[3] };
+                HashSet<string> interS = new HashSet<string>(set1);
+                interS.IntersectWith(set2);
+
+                if (interS.Count >= 2)
+                    Console.WriteLine("similar");
+                else
+                    Console.WriteLine("dissimilar");
+            }
+        }
+    }
+}
