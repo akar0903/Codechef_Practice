@@ -1,0 +1,50 @@
+using System;
+
+public class Test
+{
+    public static void Main()
+    {
+        // Read number of test cases
+        int t = int.Parse(Console.ReadLine());
+        
+        while (t-- > 0)
+        {
+            // Parse the input into an array of RGB values
+            int[] arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+            
+            // Sort the RGB array to get the smallest, middle, and largest value
+            Array.Sort(arr);
+            int min = arr[0], mid = arr[1], max = arr[2];
+            int ans = 0;
+
+            // Handle specific cases based on sorted RGB values
+            if (mid == 0 && max > 0)
+            {
+                ans = 1; // Only one color is available
+            }
+            else if (min == 0 && mid == 1)
+            {
+                ans = 2; // Two colors can be created
+            }
+            else if ((min == 0 && mid > 1) || (min == 1 && mid == 1))
+            {
+                ans = 3; // Three colors are possible
+            }
+            else if ((min == 1 && mid > 1) || (min == 2 && max == 2))
+            {
+                ans = 4; // Four colors are possible
+            }
+            else if (min == 2 && max > 2)
+            {
+                ans = 5; // Five colors are possible
+            }
+            else if (min > 2)
+            {
+                ans = 6; // Maximum of six distinct colors
+            }
+            
+            // Output the result
+            Console.WriteLine(ans);
+        }
+    }
+}
