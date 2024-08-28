@@ -1,0 +1,41 @@
+using System;
+
+public class Test
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine());
+        
+        while (t-- > 0)
+        {
+            int n = int.Parse(Console.ReadLine());
+            string[] games = Console.ReadLine().Split();
+            
+            int maxDiff = int.MinValue; 
+            int minGoals = int.Parse(games[0]); 
+            
+            bool improved = false; 
+            
+            for (int i = 1; i < n; i++)
+            {
+                int currentGoals = int.Parse(games[i]);
+                
+                if (currentGoals > minGoals) 
+                {
+                    maxDiff = Math.Max(maxDiff, currentGoals - minGoals);
+                    improved = true;
+                }
+                minGoals = Math.Min(minGoals, currentGoals);
+            }
+            
+            if (improved)
+            {
+                Console.WriteLine(maxDiff);
+            }
+            else
+            {
+                Console.WriteLine("UNFIT");
+            }
+        }
+    }
+}
