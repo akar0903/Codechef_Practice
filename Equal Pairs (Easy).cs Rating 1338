@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int t = int.Parse(Console.ReadLine());
+		while(t-->0){
+		    int n = int.Parse(Console.ReadLine());
+		    string input = Console.ReadLine();
+            string[] parts = input.Split(' ');
+            List<int> numbers = parts.Select(int.Parse).ToList();
+            Dictionary<int,int> dict = new Dictionary<int,int>();
+            int countOfzero = numbers.Count(x => x == 0);
+            foreach(var b in numbers){
+                if(b == 0){
+                    continue;
+                }
+                if(dict.ContainsKey(b)){
+                    dict[b] += 1;
+                }
+                else{
+                    dict.Add(b,1);
+                }
+            }
+             if (countOfzero == n)
+            {
+                Console.WriteLine((n * (n - 1)) / 2); 
+            }
+            else{
+                var list = dict.Values.ToList();
+                int count = 0;
+                var maxvalue = list.Max();
+                var maxkey = dict.FirstOrDefault(x => x.Value == maxvalue).Key;
+                dict[maxkey] += countOfzero;
+                foreach (var val in dict.Values)
+                {
+                    if (val < 2) continue; 
+                    count += (val * (val - 1)) / 2; 
+                }
+                Console.WriteLine(count);
+            }
+		}
+	}
+}
