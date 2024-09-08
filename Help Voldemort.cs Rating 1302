@@ -1,0 +1,21 @@
+using System;
+
+public class Test
+{
+	public static void Main()
+	{
+		// your code goes here
+		int N = int.Parse(Console.ReadLine());
+        int[] energy = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), int.Parse);
+        Array.Sort(energy);
+        long sum = 0;
+        for (int i = 0; i < N - 1; i++)
+        {
+            sum += energy[i] * energy[i + 1];
+        }
+
+            Console.WriteLine(sum);
+        }
+		
+	}
+
