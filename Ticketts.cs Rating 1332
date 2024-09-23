@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+
+public class Test
+{
+    public static void Main()
+    {
+        int t = int.Parse(Console.ReadLine()); 
+        while (t-- > 0)
+        {
+            string input = Console.ReadLine(); 
+            if (IsAlternating(input))
+            {
+                Console.WriteLine("YES");
+            }
+            else
+            {
+                Console.WriteLine("NO");
+            }
+        }
+    }
+    public static bool IsAlternating(string s)
+    {
+        if (s.Length < 2) return false; 
+        HashSet<char> distinctChars = new HashSet<char>();
+        foreach (char c in s)
+        {
+            distinctChars.Add(c);
+            if (distinctChars.Count > 2)
+            {
+                return false; 
+            }
+        }
+        if (distinctChars.Count != 2) return false;
+        for (int i = 0; i < s.Length - 1; i++)
+        {
+            if (s[i] == s[i + 1])
+            {
+                return false; 
+            }
+        }
+
+        return true;
+    }
+}
