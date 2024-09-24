@@ -1,0 +1,24 @@
+using System;
+
+public class Test
+{
+    public static void Main()
+    {
+        // Read the number of test cases
+        int T = int.Parse(Console.ReadLine());
+        for (; T > 0; T--)
+        {
+            string[] ip = Console.ReadLine().Split(' ');
+            int X = int.Parse(ip[0]); 
+            int Y = int.Parse(ip[1]); 
+            if ((X & 1) == 0 && !((Y & 1) == 1 && X < 2))
+            {
+                Console.WriteLine("YES");
+            }
+            else
+            {
+                Console.WriteLine("NO");
+            }
+        }
+    }
+}
