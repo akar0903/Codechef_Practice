@@ -1,0 +1,45 @@
+using System;
+
+public class Test
+{
+	public static void Main ()
+	{
+	    byte t = byte.Parse (Console.ReadLine ());
+	    
+	    for (byte i = 0; i < t; i++) {
+	        int n = int.Parse (Console.ReadLine ());
+	        string ans = string.Empty;
+	        bool solved = false;
+	        byte countS = 0;
+	        byte countV = 0;
+	        
+	        for (int j = 0; j < n; j++) {
+	            string name = Console.ReadLine ();
+	            
+	            if (solved)
+	                continue;
+	                
+	            if (name.Length >= 3 && name.Substring (name.Length-3) == "man")
+	                countS++;
+	                
+	            else
+	                countV++;
+	                
+	            if (countS == countV+2) {
+	                ans = "superheroes";
+	                solved = true;
+	            }
+	            
+	            else if (countV == countS+3) {
+	                ans = "villains";
+	                solved = true;
+	            }
+	        }
+	        
+	        if (!solved)
+	            ans = "draw";
+	            
+	        Console.WriteLine (ans);
+	    }
+	}
+}
